@@ -1,0 +1,16 @@
+{
+  "name": "crypt3-passwd",
+  "version": "0.0.1",
+  "description": "CRYPT(3)",
+  "main": "index.js",
+  "scripts": {
+    "install": "node-gyp-build"
+  },
+  "author": "Jimmy Huang <victor0801x@gmail.com>",
+  "dependencies": {
+    "node-gyp-build": "^4.2.0"
+  },
+  "devDependencies": {
+    "node-gyp": "^6.0.1"
+  }
+}
