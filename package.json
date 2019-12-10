@@ -1,6 +1,6 @@
 {
   "name": "crypt3-passwd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CRYPT(3)",
   "main": "index.js",
   "scripts": {
