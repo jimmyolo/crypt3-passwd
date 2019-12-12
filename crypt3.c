@@ -25,12 +25,11 @@ napi_value crypt3 (napi_env env, napi_callback_info info) {
 		return NULL;
 	}
 
-	char password[128];
-	char salt[32];
+	char password[64], salt[32];
 	int32_t algo;
-	napi_get_value_int32(env, argv[2], &algo);
-	napi_get_value_string_utf8(env, argv[0], password, 128, NULL);
+	napi_get_value_string_utf8(env, argv[0], password, 64, NULL);
 	napi_get_value_string_utf8(env, argv[1], salt, 32, NULL);
+	napi_get_value_int32(env, argv[2], &algo);
 
 	char unixSalt[64];
 	sprintf(unixSalt, "$%d$%s", algo, salt);
