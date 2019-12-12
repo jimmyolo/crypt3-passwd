@@ -1,6 +1,6 @@
 'use strict'
 const bindings = require('node-gyp-build')(__dirname)
-bindings.verify = async (passwd, hash, algo) => hash === await bindings.encrypt(passwd, hash.split('$')[2], algo)
+bindings.verify = (passwd, hash, algo) => hash === bindings.encrypt(passwd, hash.split('$')[2], algo)
 
 const ENUM_ALGO = {
   '1': 'md5',
@@ -22,7 +22,7 @@ function createSalt (length) {
 }
 
 module.exports = {
-  async encrypt (passwd, salt, algo) {
+  encrypt (passwd, salt, algo) {
     if (!passwd) throw Error('Missing password argument.')
     algo = ENUM_ALGO[(algo || '6').toString().toLowerCase()]
     if (!algo) throw Error('Unknown algorithm.')
@@ -35,7 +35,7 @@ module.exports = {
     }
   },
 
-  async verify (passwd, hashed, algo) {
+  verify (passwd, hashed, algo) {
     if (!passwd) throw Error('Missing password argument.')
     if (!hashed) throw Error('Missing hash argument.')
     algo = ENUM_ALGO[(algo || hashed.split('$')[1]).toString().toLowerCase()]
