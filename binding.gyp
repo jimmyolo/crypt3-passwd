@@ -5,8 +5,8 @@
 			"crypt3.c",
 		],
 		"include_dirs": [
-      "<!(node -e \"require('napi-macros')\")"
-    ],
+			"<!(node -e \"require('napi-macros')\")"
+		],
 		"cflags": [
 			"-std=c99",
 			"-O3",

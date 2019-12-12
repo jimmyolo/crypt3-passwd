@@ -1,3 +1,5 @@
+#define NAPI_VERSION 3
+
 #include <node_api.h>
 #include <napi-macros.h>
 // #include <assert.h>
