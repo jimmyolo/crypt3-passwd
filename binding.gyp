@@ -4,11 +4,8 @@
 		"sources": [
 			"crypt3.c",
 		],
-		"include_dirs": [
-			"<!(node -e \"require('napi-macros')\")"
-		],
 		"cflags": [
-			"-std=c99",
+			"-std=c11",
 			"-O3",
 			"-pedantic",
 		],
@@ -17,6 +14,10 @@
 				"libraries": [
 					"-lcrypt",
 				],
+				"defines": ["_GNU_SOURCE"]
+			}],
+			[ "OS == 'mac'", {
+				"defines": ["_XOPEN_SOURCE"]
 			}],
 		],
 	}],

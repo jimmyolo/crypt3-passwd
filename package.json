@@ -17,7 +17,6 @@
   ],
   "author": "Jimmy Huang <victor0801x@gmail.com>",
   "dependencies": {
-    "napi-macros": "^2.0.0",
     "node-gyp-build": "^4.2.0"
   },
   "devDependencies": {
