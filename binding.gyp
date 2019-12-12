@@ -4,8 +4,11 @@
 		"sources": [
 			"crypt3.c",
 		],
+		"include_dirs": [
+      "<!(node -e \"require('napi-macros')\")"
+    ],
 		"cflags": [
-			"-std=c11",
+			"-std=c99",
 			"-O3",
 			"-pedantic",
 		],

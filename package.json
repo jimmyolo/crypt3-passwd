@@ -6,8 +6,18 @@
   "scripts": {
     "install": "node-gyp-build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victor0801x/crypt3-passwd.git"
+  },
+  "keywords": [
+    "crypt3",
+    "/etc/passwd",
+    "/etc/shadow"
+  ],
   "author": "Jimmy Huang <victor0801x@gmail.com>",
   "dependencies": {
+    "napi-macros": "^2.0.0",
     "node-gyp-build": "^4.2.0"
   },
   "devDependencies": {
