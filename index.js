@@ -14,7 +14,7 @@ const ENUM_ALGO = {
 }
 
 const SALT_SPACES = './0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
-function createSalt (length) {
+function createSalt (length = 16) {
   let salt = ''
   const saltSpaceLength = SALT_SPACES.length
   while (length--) salt += SALT_SPACES[Math.floor(Math.random() * saltSpaceLength) % saltSpaceLength]
@@ -38,7 +38,7 @@ module.exports = {
   verify (passwd, hashed, algo) {
     if (!passwd) throw Error('Missing password argument.')
     if (!hashed) throw Error('Missing hash argument.')
-    algo = ENUM_ALGO[(algo || hashed.split('$')[1]).toString().toLowerCase()]
+    algo = ENUM_ALGO[(algo || hashed.split('$')[1] || '').toString().toLowerCase()]
     if (!algo) throw Error('Unknown algorithm.')
 
     switch (algo) {
@@ -46,5 +46,7 @@ module.exports = {
       case 'sha256': return bindings.verify(passwd, hashed, 5)
       case 'sha512': return bindings.verify(passwd, hashed, 6)
     }
-  }
+  },
+
+  createSalt,
 }

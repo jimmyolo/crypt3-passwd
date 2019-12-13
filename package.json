@@ -4,7 +4,8 @@
   "description": "CRYPT(3)",
   "main": "index.js",
   "scripts": {
-    "install": "node-gyp-build"
+    "install": "node-gyp-build",
+    "test": "tap 'test/*.test.js' --cov"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   },
   "devDependencies": {
     "node-gyp": "^6.0.1",
-    "release-it": "^12.4.3"
+    "release-it": "^12.4.3",
+    "tap": "^14.10.2"
   },
   "release-it": {
     "git": {
