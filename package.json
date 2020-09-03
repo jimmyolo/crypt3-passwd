@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "node-gyp": "^6.0.1",
-    "release-it": "^12.4.3",
+    "release-it": "^13.7.1",
     "tap": "^14.10.2"
   },
   "release-it": {
