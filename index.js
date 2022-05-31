@@ -1,6 +1,6 @@
 'use strict'
 const bindings = require('node-gyp-build')(__dirname)
-bindings.verify = (passwd, hash, algo) => hash === bindings.encrypt(passwd, hash.split('$')[2], algo)
+bindings.verify = (passwd, hash, algo) => hash === bindings.encrypt(passwd, hash.match(/\d\$(.+)\$/)[1], algo)
 
 const ENUM_ALGO = {
   '1': 'md5',
