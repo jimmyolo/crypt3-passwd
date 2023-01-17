@@ -18,12 +18,12 @@
   ],
   "author": "Jimmy Huang <victor0801x@gmail.com>",
   "dependencies": {
-    "node-gyp-build": "^4.5.0"
+    "node-gyp-build": "^4.6.0"
   },
   "devDependencies": {
-    "node-gyp": "^9.3.0",
-    "release-it": "^15.5.1",
-    "tap": "^16.3.2"
+    "node-gyp": "^9.3.1",
+    "release-it": "^15.6.0",
+    "tap": "^16.3.4"
   },
   "release-it": {
     "git": {
