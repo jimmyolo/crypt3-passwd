@@ -20,7 +20,8 @@ const data = {
     salt: 'salt/SHA512',
     algo: 'sha512',
     passwd: 'jimmy',
-    hashed: '$6$salt/SHA512$dfLSBj9voHuXzHhCmaaZvQmaIZ9f7UsOJUsoq4t3mOqKgz4ls.vKb9k6QvNND2Vwb86R1PV3rKmwBHIg4HtQj/'
+    hashed: '$6$salt/SHA512$dfLSBj9voHuXzHhCmaaZvQmaIZ9f7UsOJUsoq4t3mOqKgz4ls.vKb9k6QvNND2Vwb86R1PV3rKmwBHIg4HtQj/',
+    roundedHashed: '$6$rounds=5000$salt/SHA512$dfLSBj9voHuXzHhCmaaZvQmaIZ9f7UsOJUsoq4t3mOqKgz4ls.vKb9k6QvNND2Vwb86R1PV3rKmwBHIg4HtQj/'
   },
   'sha256': {
     openssl: 'openssl passwd -5 -salt salt/SHA256 jimmy',
@@ -45,6 +46,13 @@ test('Encryption', (batch) => {
     t.plan(1)
     const hashedPassword = encrypt(password, 'salt/SHA512', 'sha512')
     t.ok(hashedPassword === data['sha512'].hashed)
+  })
+
+  batch.test('sha512 with round=5000', (t) => {
+    t.plan(1)
+    const hashedPassword = encrypt(password, 'rounds=5000$salt/SHA512', 'sha512')
+    console.log(hashedPassword)
+    t.ok(hashedPassword === data['sha512'].roundedHashed)
   })
 
   batch.test('sha256', (t) => {
